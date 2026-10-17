@@ -40,58 +40,13 @@
     body.lightbox-open{overflow:hidden}
     @keyframes posterIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
 
-
-    /* First-visit fantasy postcard welcome */
-    .welcome-overlay{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:22px;background:rgba(25,15,12,.72);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s ease;overflow-y:auto}
-    .welcome-overlay.is-visible{opacity:1;visibility:visible}
-    .welcome-scene{position:relative;width:min(100%,760px);min-height:520px;display:grid;place-items:center;isolation:isolate}
-    .welcome-glow{position:absolute;width:min(82vw,570px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,217,159,.26),rgba(217,108,95,.08) 48%,transparent 72%);filter:blur(4px);animation:glowPulse 4s ease-in-out infinite}
-    .welcome-sparkle{position:absolute;color:#ffe4a8;font-size:clamp(18px,3vw,30px);text-shadow:0 0 18px rgba(255,220,150,.8);animation:twinkle 2.2s ease-in-out infinite}
-    .welcome-sparkle.s1{top:8%;left:16%;animation-delay:.2s}.welcome-sparkle.s2{top:15%;right:13%;font-size:22px;animation-delay:1s}.welcome-sparkle.s3{bottom:12%;left:19%;font-size:18px;animation-delay:.7s}.welcome-sparkle.s4{bottom:16%;right:17%;font-size:26px;animation-delay:1.3s}
-    .vintage-postcard{position:relative;width:min(100%,570px);min-height:430px;padding:24px 24px 22px;border-radius:5px;background:#f3e3c8;border:1px solid #c6a77d;box-shadow:0 32px 85px rgba(0,0,0,.36),inset 0 0 0 7px rgba(255,250,230,.55),inset 0 0 0 8px rgba(147,93,55,.2);transform:translateY(30px) rotate(-3deg) scale(.82);opacity:0;transition:transform .85s cubic-bezier(.18,.9,.22,1),opacity .6s ease;overflow:visible}
-    .welcome-overlay.is-visible .vintage-postcard{transform:translateY(0) rotate(-1deg) scale(1);opacity:1;transition-delay:.12s}
-    .vintage-postcard:before{content:'';position:absolute;inset:14px;border:1px dashed rgba(130,81,48,.5);pointer-events:none}
-    .postcard-topline{display:flex;align-items:center;justify-content:space-between;gap:14px;position:relative;z-index:2;color:#8a5d3d;text-transform:uppercase;letter-spacing:.16em;font-size:.65rem;font-weight:700}
-    .postcard-stamp{width:55px;height:64px;display:grid;place-items:center;flex:none;border:1px solid #bd8f66;background:#e7c9a1;color:#87563b;font-family:'Instrument Serif',serif;font-size:1.7rem;transform:rotate(5deg);box-shadow:2px 3px 0 rgba(118,76,48,.12)}
-    .postcard-postmark{font-family:'Instrument Serif',serif;font-size:1rem;line-height:1.1;opacity:.8;text-align:right}
-    .postcard-letter{position:relative;z-index:1;margin:-2px 12px 0;padding:25px 26px 23px;background:#fff9eb;border:1px solid #e3d0b0;box-shadow:0 10px 24px rgba(89,53,27,.15);transform:translateY(58px) rotate(1deg);opacity:0;transition:transform 1s cubic-bezier(.18,.9,.22,1),opacity .6s ease;transition-delay:.45s}
-    .welcome-overlay.is-visible .postcard-letter{transform:translateY(0) rotate(0);opacity:1}
-    .postcard-letter:before{content:'✦';position:absolute;right:18px;top:10px;color:#d96c5f;font-size:1.1rem;opacity:.8}
-    .postcard-greeting{font-family:'Instrument Serif',serif;font-size:clamp(1.7rem,4vw,2.25rem);line-height:1;color:#8c5136;margin:0 0 14px;letter-spacing:-.03em}
-    .postcard-message{font-size:clamp(.88rem,1.8vw,1rem);line-height:1.7;color:#514237;margin:0}
-    .postcard-signoff{font-family:'Instrument Serif',serif;color:#b45f50;font-size:1.35rem;text-align:right;margin:14px 0 0}
-    .postcard-footer{display:flex;justify-content:center;position:relative;z-index:2;margin-top:22px}
-    .portfolio-enter{border:0;border-radius:999px;background:#6e3525;color:#fff8ed;font:700 .9rem 'DM Sans',sans-serif;padding:15px 25px;box-shadow:0 8px 0 #4d261b,0 14px 24px rgba(93,47,29,.2);cursor:pointer;transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:10px}
-    .portfolio-enter:hover{transform:translateY(-3px);box-shadow:0 11px 0 #4d261b,0 18px 28px rgba(93,47,29,.25)}.portfolio-enter:active{transform:translateY(3px);box-shadow:0 4px 0 #4d261b}
-    .welcome-overlay.is-closing .vintage-postcard{transform:translateY(-30px) rotate(4deg) scale(.9);opacity:0}.welcome-overlay.is-closing{opacity:0;visibility:hidden}
-    body.welcome-open{overflow:hidden}
-    @keyframes twinkle{0%,100%{opacity:.35;transform:translateY(0) scale(.8) rotate(0)}50%{opacity:1;transform:translateY(-10px) scale(1.15) rotate(18deg)}}
-    @keyframes glowPulse{0%,100%{transform:scale(.94);opacity:.65}50%{transform:scale(1.08);opacity:1}}
-
     footer{padding:24px 0 34px;color:var(--muted);font-size:.78rem;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line)}
-    @media(max-width:820px){.welcome-scene{min-height:500px}.vintage-postcard{width:min(100%,540px)}.services-layout{grid-template-columns:1fr;gap:28px}.services-thanks:before{right:-2%;top:18%}.hero-layout{grid-template-columns:minmax(0,1fr) minmax(240px,.8fr);gap:10px;min-height:350px}.hero-visual{min-height:300px}.hero-girl{max-height:390px}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.video-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.section-top{align-items:start;flex-direction:column}.section-intro{max-width:560px}.business-grid{gap:18px}}
-    @media(max-width:600px){.welcome-overlay{padding:12px}.welcome-scene{min-height:0;padding:18px 0}.vintage-postcard{min-height:0;padding:18px 16px 17px;transform:translateY(24px) rotate(-2deg) scale(.84)}.vintage-postcard:before{inset:9px}.postcard-letter{margin:4px 4px 0;padding:23px 18px 18px}.postcard-topline{font-size:.55rem}.postcard-stamp{width:43px;height:51px;font-size:1.35rem}.postcard-postmark{font-size:.8rem}.postcard-footer{margin-top:20px}.portfolio-enter{font-size:.82rem;padding:14px 20px}.hero-intro-copy{font-size:.95rem!important}.poster-lightbox{padding:14px}.poster-lightbox-inner{width:100%;height:82vh}.poster-close{top:-10px;right:-4px}.poster-lightbox-caption{bottom:-27px}.services-layout{gap:22px}.service-chip{font-size:.78rem;padding:10px 12px}.wrap{width:min(100% - 30px,1180px)}.nav{min-height:64px;position:relative}.menu-btn{display:block}.navlinks{display:none;position:absolute;top:63px;left:-15px;right:-15px;background:var(--paper);padding:18px 20px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}.navlinks.open{display:flex}.intro{padding:40px 0 12px}.hero-layout{grid-template-columns:1fr;gap:0;min-height:0}.hero-copy{padding-top:12px}.hero-visual{min-height:260px;margin-top:8px}.hero-visual:before{width:min(76%,300px)}.hero-girl{width:min(100%,340px);max-height:340px}.intro h1{font-size:clamp(3.2rem,16vw,5rem)}section{padding:54px 0}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.media-frame{border-radius:14px}.work-title h3{font-size:.88rem}.work-title p{font-size:.72rem}.work-num{font-size:.7rem}.video-grid{grid-template-columns:1fr;gap:25px}.video-frame{max-width:360px;margin:auto;width:100%}.video-label{max-width:360px;margin:auto}.business-grid{grid-template-columns:1fr;gap:28px}.business-flip-stage{min-height:220px}.business-flip-card{width:min(100%,390px)}.section-top h2 .serif{color:var(--coral)}.videos .section-top h2 .serif{color:var(--coral)}.section-top h2{font-size:clamp(1.65rem,7vw,2.7rem);letter-spacing:-.06em;white-space:nowrap}.contact-inner{align-items:flex-start;flex-direction:column}.contact-inner h2{font-size:clamp(2rem,8vw,3rem);white-space:normal}.contact-actions{width:100%;max-width:360px}}
+    @media(max-width:820px){.services-layout{grid-template-columns:1fr;gap:28px}.services-thanks:before{right:-2%;top:18%}.hero-layout{grid-template-columns:minmax(0,1fr) minmax(240px,.8fr);gap:10px;min-height:350px}.hero-visual{min-height:300px}.hero-girl{max-height:390px}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.video-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.section-top{align-items:start;flex-direction:column}.section-intro{max-width:560px}.business-grid{gap:18px}}
+    @media(max-width:600px){.hero-intro-copy{font-size:.95rem!important}.poster-lightbox{padding:14px}.poster-lightbox-inner{width:100%;height:82vh}.poster-close{top:-10px;right:-4px}.poster-lightbox-caption{bottom:-27px}.services-layout{gap:22px}.service-chip{font-size:.78rem;padding:10px 12px}.wrap{width:min(100% - 30px,1180px)}.nav{min-height:64px;position:relative}.menu-btn{display:block}.navlinks{display:none;position:absolute;top:63px;left:-15px;right:-15px;background:var(--paper);padding:18px 20px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}.navlinks.open{display:flex}.intro{padding:40px 0 12px}.hero-layout{grid-template-columns:1fr;gap:0;min-height:0}.hero-copy{padding-top:12px}.hero-visual{min-height:260px;margin-top:8px}.hero-visual:before{width:min(76%,300px)}.hero-girl{width:min(100%,340px);max-height:340px}.intro h1{font-size:clamp(3.2rem,16vw,5rem)}section{padding:54px 0}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.media-frame{border-radius:14px}.work-title h3{font-size:.88rem}.work-title p{font-size:.72rem}.work-num{font-size:.7rem}.video-grid{grid-template-columns:1fr;gap:25px}.video-frame{max-width:360px;margin:auto;width:100%}.video-label{max-width:360px;margin:auto}.business-grid{grid-template-columns:1fr;gap:28px}.business-flip-stage{min-height:220px}.business-flip-card{width:min(100%,390px)}.section-top h2 .serif{color:var(--coral)}.videos .section-top h2 .serif{color:var(--coral)}.section-top h2{font-size:clamp(1.65rem,7vw,2.7rem);letter-spacing:-.06em;white-space:nowrap}.contact-inner{align-items:flex-start;flex-direction:column}.contact-inner h2{font-size:clamp(2rem,8vw,3rem);white-space:normal}.contact-actions{width:100%;max-width:360px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
 </head>
 <body>
-
-  <div class="welcome-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" aria-describedby="welcomeMessage">
-    <div class="welcome-scene">
-      <div class="welcome-glow" aria-hidden="true"></div>
-      <span class="welcome-sparkle s1" aria-hidden="true">✦</span><span class="welcome-sparkle s2" aria-hidden="true">✧</span><span class="welcome-sparkle s3" aria-hidden="true">✦</span><span class="welcome-sparkle s4" aria-hidden="true">✧</span>
-      <article class="vintage-postcard">
-        <div class="postcard-topline"><span>A little note from my studio</span><span class="postcard-stamp" aria-hidden="true">S.</span></div>
-        <div class="postcard-topline" style="justify-content:flex-end;margin-top:-10px"><span class="postcard-postmark">MADE WITH<br>♡ & IMAGINATION</span></div>
-        <div class="postcard-letter">
-          <h2 class="postcard-greeting" id="welcomeTitle">Hello! I’m Sarita 🎨</h2>
-          <p class="postcard-message" id="welcomeMessage">I’m a creative graphic designer obsessed with detail and aesthetics. Whether it's crafting a unique logo, designing scroll-stopping social media posters, editing dynamic reels, or designing print-ready cards and brochures—I’m here to make your brand stand out!</p>
-          <p class="postcard-signoff">With creativity, Sarita ✨</p>
-        </div>
-        <div class="postcard-footer"><button class="portfolio-enter" id="enterPortfolio" type="button">Check my portfolio <span aria-hidden="true">↗</span></button></div>
-      </article>
-    </div>
-  </div>
 
   <header>
     <div class="wrap nav">
@@ -124,14 +79,16 @@
       <div class="wrap">
         <div class="section-top"><div><div class="eyebrow">01 / Selected visual work</div><h2>Posters <span class="serif">and campaigns.</span></h2></div></div>
         <div class="gallery">
-<article class="work"><div class="media-frame"><img src="images/cobs%20baker%20post%20designed.webp" alt="Cobs Bakers promotional poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Cobs Bakers</h3><p>Food business promotion</p></div><span class="work-num">01 ↗</span></div></article>
-          <article class="work"><div class="media-frame"><img src="images/Hiring.webp" alt="Alley Cutz hiring campaign poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Hiring Campaign</h3><p>Recruitment creative</p></div><span class="work-num">02 ↗</span></div></article>
-          <article class="work"><div class="media-frame"><img src="images/NAIL%20EXTENSIONS.webp" alt="Nail extensions course promotional poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Nail Extensions</h3><p>Beauty course promotion</p></div><span class="work-num">03 ↗</span></div></article>
-          <article class="work"><div class="media-frame"><img src="images/Visa-success.webp" alt="Visa success promotional poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Visa Success</h3><p>Immigration consultancy</p></div><span class="work-num">04 ↗</span></div></article>
-<article class="work"><div class="media-frame"><img src="images/gandhijayanti.webp" alt="Gandhi Jayanti poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Gandhi Jayanti</h3><p>Occasion creative</p></div><span class="work-num">01 ↗</span></div></article>
-          <article class="work"><div class="media-frame"><img src="images/Janamashtmi.webp" alt="Janmashtami poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Janmashtami</h3><p>Festival greeting</p></div><span class="work-num">02 ↗</span></div></article>
-          <article class="work"><div class="media-frame"><img src="images/shivratri.webp" alt="Maha Shivratri poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Maha Shivratri</h3><p>Festival greeting</p></div><span class="work-num">03 ↗</span></div></article>
-          <article class="work"><div class="media-frame"><img src="images/new%20.webp" alt="Additional festival poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Festival Creative</h3><p>Seasonal social design</p></div><span class="work-num">04 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/cobs%20baker%20post%20designed.webp" alt="Cobs Bakers promotional poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Cobs Bakers</h3><p>Food business promotion</p></div><span class="work-num">01 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/NAIL%20EXTENSIONS.webp" alt="Nail extensions course promotional poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Nail Extensions</h3><p>Beauty course promotion</p></div><span class="work-num">02 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/Visa-success.webp" alt="Visa success promotional poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Visa Success</h3><p>Immigration consultancy</p></div><span class="work-num">03 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/Janamashtmi.webp" alt="Janmashtami poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Janmashtami</h3><p>Festival greeting</p></div><span class="work-num">04 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/bali-thailand.webp" alt="Bali Thailand travel poster design" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Bali &amp; Thailand</h3><p>Travel promotion</p></div><span class="work-num">05 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/cobs%20bakers%20final.webp" alt="Cobs Bakers promotional poster design" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Cobs Bakers Campaign</h3><p>Promotional design</p></div><span class="work-num">06 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/Cobs%20product%20design%20templates.webp" alt="Cobs product design templates" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Product Design Templates</h3><p>Product creative</p></div><span class="work-num">07 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/motupatluapec.webp" alt="APEC Overseas Motu Patlu promotional poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>APEC Overseas</h3><p>Character-led promotion</p></div><span class="work-num">08 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/travel.webp" alt="Travel promotional poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Travel Creative</h3><p>Travel campaign</p></div><span class="work-num">09 ↗</span></div></article>
+          <article class="work"><div class="media-frame"><img src="images/tourism.webp" alt="Tourism promotional poster" width="1080" height="1350" loading="lazy"></div><div class="work-title"><div><h3>Tourism Creative</h3><p>Destination promotion</p></div><span class="work-num">10 ↗</span></div></article>
         </div>
         <p class="poster-open-hint">↗ Click any poster to view it up close</p>
       </div>
@@ -178,9 +135,6 @@
         </div>
       </div>
     </section>
-
-
-
 
     <section class="services-thanks" id="services">
       <div class="wrap services-layout">
@@ -248,36 +202,6 @@
     posterClose.addEventListener('click',closePosterPreview);
     posterLightbox.addEventListener('click',event=>{if(event.target===posterLightbox)closePosterPreview();});
     document.addEventListener('keydown',event=>{if(event.key==='Escape'&&posterLightbox.classList.contains('open'))closePosterPreview();});
-
-
-    // Welcome postcard: show once per browser session, then let visitors enter the portfolio.
-    const welcomeOverlay = document.getElementById('welcomeOverlay');
-    const enterPortfolioButton = document.getElementById('enterPortfolio');
-    const showWelcome = () => {
-      let alreadySeen = false;
-      try { alreadySeen = sessionStorage.getItem('saritaWelcomeSeen') === 'yes'; } catch (error) {}
-      if (!alreadySeen) {
-        document.body.classList.add('welcome-open');
-        requestAnimationFrame(() => welcomeOverlay.classList.add('is-visible'));
-        window.setTimeout(() => enterPortfolioButton.focus(), 900);
-      } else {
-        welcomeOverlay.remove();
-      }
-    };
-    const closeWelcome = () => {
-      try { sessionStorage.setItem('saritaWelcomeSeen', 'yes'); } catch (error) {}
-      welcomeOverlay.classList.add('is-closing');
-      document.body.classList.remove('welcome-open');
-      window.setTimeout(() => {
-        welcomeOverlay.remove();
-        document.getElementById('top').scrollIntoView({behavior:'smooth', block:'start'});
-      }, 480);
-    };
-    enterPortfolioButton.addEventListener('click', closeWelcome);
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && welcomeOverlay.isConnected && welcomeOverlay.classList.contains('is-visible')) closeWelcome();
-    });
-    window.addEventListener('DOMContentLoaded', showWelcome, { once: true });
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
